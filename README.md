@@ -26,11 +26,7 @@ Before proceeding, ensure the following tools are installed and configured on yo
 
 - **Part 2: EKS Setup and Jenkins Pipeline**
   
-  The second part covers the setup of an EKS cluster using Terraform, followed by configuring Jenkins pipelines for automating Kubernetes deployments.
-  
-  - EKS Cluster creation using Terraform.
-  - Configuring Jenkins to deploy into the Kubernetes cluster.
-
+  The second part covers the setup of an EKS cluster using Terraform, followed by configuring Jenkins pipelines for automating Kubernetes deployment.
   More details about the configuration can be found in the following directories:
   
   - [Terraform for Cluster Setup](https://github.com/fatimazahraelaaziz/Terraform_Jenkins_EKS/tree/main/terraform-for-cluster)
@@ -42,7 +38,7 @@ In this readme file, we will detail the first part:
 
 ### Step 1: Create S3 Bucket for Terraform State
 
-Terraform needs to store state information somewhere. For this purpose, we will use AWS S3 storage.  
+Terraform needs to store state information somewhere. For this purpose, we will use AWS S3 storage by creating a [`backend.tf`](https://github.com/fatimazahraelaaziz/backend.tf) file.
 
 ### Step 2: Create a Key Pair for Jenkins EC2 Instance
 
@@ -50,13 +46,10 @@ We'll need a key to log in to the Jenkins EC2 instance. In the EC2 dashboard, un
 
 ```bash
 chmod 400 jenkins-server-key.pem
-```
-
-### Step 3: Configure Terraform Backend
-We'll use the S3 bucket to store Terraform state by creating a [`backend.tf`](https://github.com/fatimazahraelaaziz/backend.tf) file. 
+`
 
 ### Step 4: Configure AWS Provider
-Since we will be using AWS as a cloud provider, configure Terraform with this information. You can find this in the [`provider.tf`](https://github.com/fatimazahraelaaziz/provider.tf).
+Since we will be using AWS as a cloud provider, configure Terraform as shown in the [`provider.tf`](https://github.com/fatimazahraelaaziz/provider.tf).
 
 ### Step 5: Define Terraform Variables
 We will need to declare variables for our setup. These are defined in the [`variables.tf`](https://github.com/fatimazahraelaaziz/variables.tf) file.
