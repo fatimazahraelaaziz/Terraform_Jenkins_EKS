@@ -2,11 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx
+  # Deployment for Nginx application
 spec:
   selector:
     matchLabels:
       app: nginx
+  # Match pods with 'app: nginx' label
   replicas: 1
+  # Ensure 1 replica of the pod
   template:
     metadata:
       labels:
@@ -17,3 +20,4 @@ spec:
         image: nginx
         ports:
         - containerPort: 80
+        # Expose port 80 on the container

@@ -2,14 +2,16 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx
-  labels:
-    app: nginx
+  # Service for Nginx application
 spec:
   ports:
   - name: http
     port: 80
     protocol: TCP
     targetPort: 80
+    # Map port 80 on the Service to port 80 on the container
   selector:
     app: nginx
+    # Route traffic to pods with 'app: nginx' label
   type: LoadBalancer
+  # Expose the Service with a cloud load balancer
