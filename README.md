@@ -46,7 +46,7 @@ We'll need a key to log in to the Jenkins EC2 instance. In the EC2 dashboard, un
 
 ```bash
 chmod 400 jenkins-server-key.pem
-`
+```
 
 ### Step 4: Configure AWS Provider
 Since we will be using AWS as a cloud provider, configure Terraform as shown in the [`provider.tf`](https://github.com/fatimazahraelaaziz/provider.tf).
@@ -64,11 +64,11 @@ In the resource block, the [`jenkins-server-setup.sh`](https://github.com/fatima
 ### Step 7: Configure VPC and Networking
 To set up networking for the EC2 instance, refer to the [`vpc.tf`](https://github.com/fatimazahraelaaziz/vpc.tf) file.  
 This configuration will create:
-- A VPC
-- A subnet
-- An Internet Gateway (IG)
-- A Route table
-- A Security Group (SG) allowing SSH (port 22) and Jenkins (port 8080)
+- A VPC: A virtual private cloud to isolate your network resources.
+- A subnet: Defines a range of IP addresses within your VPC.
+- An Internet Gateway (IG): Allows communication between instances in your VPC and the internet.
+- A Route table: Manages the routes for traffic in your VPC.
+- A Security Group: Acts as a virtual firewall to control inbound and outbound traffic to your instances,allowing SSH (port 22) and Jenkins (port 8080)
 
 > **Note:** It is not recommended to allow all traffic for production environments. For testing purposes, this setup allows access from anywhere, but you can restrict this by adding your public IP in the ingress rules.
 
@@ -86,12 +86,12 @@ To preview the infrastructure that will be created, run the following command:
 terraform plan
 ```
 You should see output indicating that 6 resources will be created, including:
-- Route table: Manages the routes for traffic in your VPC.
-- Subnet: Defines a range of IP addresses within your VPC.
-- Internet gateway: Allows communication between instances in your VPC and the internet.
-- Security group: Acts as a virtual firewall to control inbound and outbound traffic to your instances.
-- EC2 instance: The virtual server that will run Jenkins.
-- VPC: A virtual private cloud to isolate your network resources.
+- Route table
+- Subnet
+- Internet gateway
+- Security group
+- EC2 instance
+- VPC
 
 #### Apply the Infrastructure
 To create the infrastructure, apply the plan with:
