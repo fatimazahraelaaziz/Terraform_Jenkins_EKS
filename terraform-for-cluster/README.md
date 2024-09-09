@@ -25,7 +25,7 @@ This guide outlines the steps for setting up a Kubernetes cluster using Terrafor
 ## Jenkins Pipeline
 
 1. **Environment Variables**
-   - Set environment variables related to AWS, as well as 
+   - Set environment variables related to AWS.
 
 2. **Pipeline Stages**
    - **Stage 1:** Create a Kubernetes cluster by specifying the directory where Terraform scripts should run.
