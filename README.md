@@ -42,7 +42,7 @@ In this readme file, we will detail the first part:
 
 ### Step 1: Create S3 Bucket for Terraform State
 
-Terraform needs to store state information somewhere. We are going to keep it in AWS S3 storage. Head over to your AWS panel and create a bucket. The bucket name has to be unique. For this guide, we'll use the name: `mubin-devops-cicd-terraform-eks`, and the region `us-east-1` (US North Virginia). You can select your preferred region.
+Terraform needs to store state information somewhere. For this purpose, we will use AWS S3 storage.  
 
 ### Step 2: Create a Key Pair for Jenkins EC2 Instance
 
@@ -53,22 +53,22 @@ chmod 400 jenkins-server-key.pem
 ```
 
 ### Step 3: Configure Terraform Backend
-We'll use the S3 bucket to store Terraform state by creating a `backend.tf` file. Here's how it works.
+We'll use the S3 bucket to store Terraform state by creating a [`backend.tf`](https://github.com/fatimazahraelaaziz/backend.tf) file. Here's how it works.
 
-# Step 4: Configure AWS Provider
-Since we will be using AWS as a cloud provider, configure Terraform with this information. You can find this in the `provider.tf` file [here](#).
+### Step 4: Configure AWS Provider
+Since we will be using AWS as a cloud provider, configure Terraform with this information. You can find this in the `provider.tf` file [here]((https://github.com/fatimazahraelaaziz/provider.tf)).
 
-# Step 5: Define Terraform Variables
-We will need to declare variables for our setup. These are defined in the `variables.tf` file, which you can find [here](#).
+### Step 5: Define Terraform Variables
+We will need to declare variables for our setup. These are defined in the `variables.tf` file, which you can find [here]((https://github.com/fatimazahraelaaziz/variables.tf)).
 
-Initialize these variables in the `terraform.tfvars` file, found [here](#).
+Initialize these variables in the `terraform.tfvars` file, found [here]((https://github.com/fatimazahraelaaziz/terraform.tfvars)).
 
-# Step 6: Create Jenkins Server using EC2
-We'll set up the Jenkins server using the latest Amazon Linux 2 image. Add the following content to the `server.tf` file, which you can find [here](#).
+### Step 6: Create Jenkins Server using EC2
+We'll set up the Jenkins server using the latest Amazon Linux 2 image. Add the following content to the `server.tf` file, which you can find [here](https://github.com/fatimazahraelaaziz/variables.tf).
 
 In the resource block, the `jenkins-server-setup.sh` script is used to initialize packages on our Jenkins server. You can find this script [here](#).
 
-# Step 7: Configure VPC and Networking
+### Step 7: Configure VPC and Networking
 To set up networking for the EC2 instance, refer to the `vpc.tf` file [here](#).  
 This configuration will create:
 - A VPC
@@ -79,7 +79,7 @@ This configuration will create:
 
 > **Note:** It is not recommended to allow all traffic for production environments. For testing purposes, this setup allows access from anywhere, but you can restrict this by adding your public IP in the ingress rules.
 
-# Step 8: Run Terraform Commands
+### Step 8: Run Terraform Commands
 Now that everything is set, let's execute the Terraform scripts.
 
 ### Initialize Terraform
